@@ -4,13 +4,21 @@ import catalogs
 
 
 def main():
-	path_file = "../data/usgs_mmin3_19960101-20160907_lat24.6-50_lon-125--65_us.csv"
-    usgs = catalogs.catalog_USGS()
-    usgs.test_function()
-    usgs.read_catalog()
+	pf = "../data/usgs_mmin3_19960101-20160907_lat24.6-50_lon-125--65_us.csv"
+	print(pf)
+	usgs = catalogs.catalog_USGS(pf)
+	print(usgs.path_file)
+	data = usgs.read_catalog_pd()
+	usgs.read_catalog_np()
+	print(data.head())
+    #usgs = catalogs.catalog_USGS(path_file)
+    #usgs.test_function(path_file)
+
+
 
 
 if __name__ == "__main__":
     main()
+
 
 
