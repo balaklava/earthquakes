@@ -16,14 +16,6 @@ class catalog_USGS:
 		self.path_file = path_and_file
 		self.output_format = output_format
 		
-	def read_catalog(self):
-		if self.output_format == "numpy":
-			read_catolog_np()
-		if self.output_format == "pandas":
-			read_catalog_pd()
-		# else EXCEPTION
-		
-		
 	# how to make it not seen as an attribute	
 	def read_catalog_pd(self):
 		df  =  pd.read_csv(self.path_file)
@@ -42,6 +34,18 @@ class catalog_USGS:
 		
 		# ??? is it possible to return data like attributes ??? 
 		return mag, lat, lon, depth, time_since_main
+	
+		
+	def read_catalog(self):
+		print("Output format:", self.output_format)
+		if self.output_format == "numpy":
+			self.read_catolog_np()
+		if self.output_format == "pandas":
+			self.read_catalog_pd()
+		else:
+			raise ValueError("Output format should be 'numpy' or 'pandas'.")
+		
+		
 		
      	
 '''
