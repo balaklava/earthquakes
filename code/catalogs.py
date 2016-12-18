@@ -26,14 +26,16 @@ class catalog_USGS:
 		df_select = self.read_catalog_pd()
 		
 		# numpy array
-		mag 	=  np.array(df_select[["mag"]])
-		lat 	=  np.array(df_select[["latitude"]])
-		lon 	=  np.array(df_select[["longitude"]])
-		depth 	=  np.array(df_select[["depth"]])
-		time_since_main	=  np.array(df_select[["mag"]])
+		# mag 	=  np.array(df_select[["mag"]])
+		# lat 	=  np.array(df_select[["latitude"]])
+		# lon 	=  np.array(df_select[["longitude"]])
+		# depth 	=  np.array(df_select[["depth"]])
+		# time_since_main	=  np.array(df_select[["mag"]])
 		
+		numpyMatrix = df_select.as_matrix()
+		return numpyMatrix
 		# ??? is it possible to return data like attributes ??? 
-		return mag, lat, lon, depth, time_since_main
+		#return mag, lat, lon, depth, time_since_main
 	
 		
 	def read_catalog(self):
